@@ -1,0 +1,190 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Hi!</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<p>-->
+<!--    HELLO!-->
+<!--</p>-->
+
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.js"></script>
+
+    <script th:src="@{/main.js}"></script>
+    <link th:href="@{/main.css}" rel="stylesheet" />
+
+    <head>
+<body ng-app="TouristManagement" ng-controller="TouristController">
+<h3>
+    CRUD: Spring Boot + Rest + AngularJS
+</h3>
+<form ng-submit="submitTourist()">
+    <table border="0">
+<!--        <tr>-->
+<!--            <td>Id</td>-->
+<!--            <td>{{touristForm.id}}</td>-->
+<!--        </tr>-->
+        <tr>
+            <td>Name</td>
+            <td><input type="text" ng-model="tourist.name"  /></td>
+        </tr>
+        <tr>
+            <td>Surname</td>
+            <td><input type="text" ng-model="tourist.surname"  /></td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+
+            <td>
+                <select ng-model="tourist.gender">
+                    <option>MALE</option>
+                    <option>FEMALE</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Country</td>
+            <td>
+                <select ng-model="tourist.country">
+                    <option>USA</option>
+                    <option>Russia</option>
+                    <option>Poland</option>
+                    <option>Germany</option>
+                    <option>Ukraine</option>
+                    <option>England</option>
+                </select>
+
+<!--                <input type="text" ng-model="tourist.country"  />-->
+            </td>
+        </tr>
+        <tr>
+            <td>Remarks</td>
+            <td><input type="text" ng-model="tourist.remarks"  /></td>
+        </tr>
+
+        <tr>
+            <td>Date of Birth</td>
+            <td><input type="date" id="date" ng-model="tourist.dateOfBirth"
+
+                       min="1900-01-01" max="2019-07-01">
+            </td>
+        </tr>
+
+
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Submit" class="blue-button" />
+            </td>
+        </tr>
+    </table>
+</form>
+<br/>
+<a class="create-button" ng-click="createTourist()">Create Tourist</a>
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>surname</th>
+        <th>gender</th>
+        <th>country</th>
+        <th>remarks</th>
+        <th>date of Birth</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    <!-- $scope.tourists -->
+    <tr ng-repeat="tourist in tourists">
+        <td> {{ tourist.id }}</td>
+        <td>{{ tourist.name }}</td>
+        <td>{{ tourist.surname }}</td>
+        <td>{{ tourist.gender}}</td>
+        <td>{{ tourist.country}}</td>
+        <td>{{ tourist.remarks}}</td>
+        <td>{{ tourist.dateOfBirth}}</td>
+        <td>
+            <a ng-click="editTourist(tourist)" class="edit-button">Edit</a>
+        </td>
+        <td>
+            <a ng-click="deleteTourist(tourist)" class="delete-button">Delete</a>
+        </td>
+    </tr>
+</table>
+
+
+
+
+
+
+
+<!--<form ng-submit="submitFlight()">-->
+<!--    <table border="0">-->
+<!--        &lt;!&ndash;        <tr>&ndash;&gt;-->
+<!--        &lt;!&ndash;            <td>Id</td>&ndash;&gt;-->
+<!--        &lt;!&ndash;            <td>{{touristForm.id}}</td>&ndash;&gt;-->
+<!--        &lt;!&ndash;        </tr>&ndash;&gt;-->
+<!--        <tr>-->
+<!--            <td>Name</td>-->
+<!--            <td><input type="text" ng-model="flight.name"  /></td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>departure</td>-->
+<!--            <td><input type="date" ng-model="flight.departure"-->
+
+<!--                       mmin="1900-01-01" max="2022-01-01">-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>arrive</td>-->
+<!--            <td><input type="date" ng-model="flight.arrive"-->
+
+<!--                       min="1900-01-01" max="2022-01-01">-->
+<!--            </td>-->
+<!--        </tr>-->
+
+
+<!--        <tr>-->
+<!--            <td colspan="2">-->
+<!--                <input type="submit" value="Submit" class="blue-button" />-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--    </table>-->
+<!--</form>-->
+<!--<br/>-->
+<!--<a class="create-button" ng-click="createFlight()">Create Flight</a>-->
+<!--<table border="1">-->
+<!--    <tr>-->
+<!--        <th>id</th>-->
+<!--        <th>name</th>-->
+<!--        <th>departure</th>-->
+<!--        <th>arrive</th>-->
+<!--        <th>seats</th>-->
+<!--        <th>price</th>-->
+<!--        <th>Edit</th>-->
+<!--        <th>Delete</th>-->
+<!--    </tr>-->
+<!--    &lt;!&ndash; $scope.tourists &ndash;&gt;-->
+<!--    <tr ng-repeat="flight in flights">-->
+<!--        <td> {{ flight.id }}</td>-->
+<!--        <td>{{ flight.name }}</td>-->
+<!--        <td>{{ flight.departure }}</td>-->
+<!--        <td>{{ flight.arrive}}</td>-->
+<!--        <td>{{ flight.seats}}</td>-->
+<!--        <td>{{ flight.price}}</td>-->
+<!--        <td>-->
+<!--            <a ng-click="editFlight(flight)" class="edit-button">Edit</a>-->
+<!--        </td>-->
+<!--        <td>-->
+<!--            <a ng-click="deleteFlight(flight)" class="delete-button">Delete</a>-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--</table>-->
+</body>
+</html>
