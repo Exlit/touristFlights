@@ -11,7 +11,7 @@ public class Tourist {
     private Country country;
     private String remarks;
     private String dateOfBirth;
-    private List<Flight> listOfFlights;
+   // private List<Flight> listOfFlights;
     public Tourist()
     {}
 
@@ -23,7 +23,7 @@ public class Tourist {
         this.country = country;
         this.remarks = remarks;
         this.dateOfBirth = dateOfBirth;
-        this.listOfFlights = listOfFlights;
+      //  this.listOfFlights = listOfFlights;
     }
 
     public Tourist(int id, String name, String surname, Gender gender, Country country, String remarks, String dateOfBirth) {
@@ -34,7 +34,7 @@ public class Tourist {
         this.country = country;
         this.remarks = remarks;
         this.dateOfBirth = dateOfBirth;
-        this.listOfFlights = listOfFlights;
+     //   this.listOfFlights = listOfFlights;
     }
 
 
@@ -96,13 +96,13 @@ public class Tourist {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public List<Flight> getListOfFlights() {
-        return listOfFlights;
-    }
-
-    public void setListOfFlights(List<Flight> listOfFlights) {
-        this.listOfFlights = listOfFlights;
-    }
+//    public List<Flight> getListOfFlights() {
+//        return listOfFlights;
+//    }
+//
+//    public void setListOfFlights(List<Flight> listOfFlights) {
+//        this.listOfFlights = listOfFlights;
+//    }
 
     @Override
     public String toString() {

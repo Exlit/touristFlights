@@ -1,9 +1,7 @@
 package com.tourists.tourists.controller;
 
-
-import com.tourists.tourists.dao.TouristDaoJDBC;
+import com.tourists.tourists.dao.FlightDaoJDBC;
 import com.tourists.tourists.model.Flight;
-import com.tourists.tourists.model.Tourist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
@@ -11,28 +9,28 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("tourist")
-public class MainRESTController {
+@RequestMapping("flight")
+public class MainFlightRESTController {
     @Autowired
-    private TouristDaoJDBC touristDao;
+    private FlightDaoJDBC flightDao;
 
-    @RequestMapping(value = "/tourists", //
+    @RequestMapping(value = "/flights", //
             method = RequestMethod.GET, //
             produces = { MediaType.APPLICATION_JSON_VALUE, //
                     MediaType.APPLICATION_XML_VALUE })
     @ResponseBody
-    public List<Tourist> getTourists() {
-        List<Tourist> list = touristDao.getAllTourists();
+    public List<Flight> getFlights() {
+        List<Flight> list = flightDao.getAllFlights();
         return list;
     }
 
-    @RequestMapping(value = "/tourist/{id}", //
+    @RequestMapping(value = "/flight/{id}", //
             method = RequestMethod.GET, //
             produces = { MediaType.APPLICATION_JSON_VALUE, //
                     MediaType.APPLICATION_XML_VALUE })
     @ResponseBody
-    public Tourist getTourists(@PathVariable("Id") int id) {
-        return touristDao.getTourists(id);
+    public Flight getFlights(@PathVariable("Id") int id) {
+        return flightDao.getFlights(id);
     }
 
     @RequestMapping(value = "/tourist", //
@@ -40,34 +38,35 @@ public class MainRESTController {
             produces = { MediaType.APPLICATION_JSON_VALUE, //
                     MediaType.APPLICATION_XML_VALUE })
     @ResponseBody
-    public Tourist addTourist(@RequestBody Tourist tourist) {
-        System.out.println("(Service Side) Creating tourist with id: " + tourist.getId() + tourist.getName());
+    public Flight addFlight(@RequestBody Flight flight) {
+        System.out.println("(Service Side) Creating tourist with id: " + flight.getId() + flight.getName());
 
-        return touristDao.addTourists(tourist);
+        return flightDao.addFlights(flight);
     }
 
-    @RequestMapping(value = "/tourist", //
+    @RequestMapping(value = "/flight", //
             method = RequestMethod.PUT, //
             produces = { MediaType.APPLICATION_JSON_VALUE, //
                     MediaType.APPLICATION_XML_VALUE })
     @ResponseBody
-    public Tourist updateTourist(@RequestBody Tourist touristForm) {
+    public Flight updateFlight(@RequestBody Flight flightForm) {
 
-        System.out.println("(Service Side) Creating tourist with id: " + touristForm.getId());
+        System.out.println("(Service Side) Creating tourist with id: " + flightForm.getId());
 
-        return touristDao.updateTourist(touristForm);
+        return flightDao.updateFlight(flightForm);
     }
 
 
-    @RequestMapping(value = "/tourist/{id}", //
+    @RequestMapping(value = "/flight/{id}", //
             method = RequestMethod.DELETE, //
             produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     @ResponseBody
-    public void deleteTourist(@PathVariable("id") int id) {
+    public void deleteFlight(@PathVariable("id") int id) {
 
         System.out.println("(Service Side) Deleting tourist with Id: " + id);
 
-        touristDao.deleteTourist(id);
+        flightDao.deleteFlight(id);
     }
 
 }
+
